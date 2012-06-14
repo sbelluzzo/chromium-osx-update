@@ -3,9 +3,9 @@
 echo "Creating temporary directories"
 mkdir /tmp/chromedownload && cd /tmp/chromedownload
 echo "Getting ID for latest build"
-curl http://commondatastorage.googleapis.com/chromium-browser-continuous/Mac/LAST_CHANGE -o /tmp/chromedownload/LATEST && LATEST=`cat /tmp/chromedownload/LATEST`
+curl -L http://commondatastorage.googleapis.com/chromium-browser-continuous/Mac/LAST_CHANGE -o /tmp/chromedownload/LATEST && LATEST=`cat /tmp/chromedownload/LATEST`
 echo "Downloading OS X build $LATEST"
-curl http://commondatastorage.googleapis.com/chromium-browser-continuous/Mac/$LATEST/chrome-mac.zip -o /tmp/chromedownload/chrome-mac.zip
+curl -L http://commondatastorage.googleapis.com/chromium-browser-continuous/Mac/$LATEST/chrome-mac.zip -o /tmp/chromedownload/chrome-mac.zip
 echo "Unzipping..."
 unzip -qq /tmp/chromedownload/chrome-mac.zip
 echo "Replacing previous Chromium app"
